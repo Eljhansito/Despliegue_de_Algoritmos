@@ -1,28 +1,30 @@
-🔌 Endpoints de la API
+🔌 Documentación de Endpoints
+La API cuenta con 6 endpoints funcionales. Los principales son:
 
-La API expone varios endpoints documentados interactivamente vía Swagger UI (/docs). Los más destacados incluyen:
+🧠 Modelos Propios (Scikit-Learn)
+POST /predict: Recibe un texto (reseña), lo limpia y utiliza el modelo Random Forest entrenado para predecir si el sentimiento es Positivo o Negativo, devolviendo también el nivel de confianza de la predicción.
 
-[POST] /predict: Análisis de sentimiento utilizando el modelo propio entrenado (Random Forest + TF-IDF).
+GET /model-info: Devuelve los metadatos y la configuración interna del modelo de Scikit-Learn (hiperparámetros, tamaño del vocabulario, etc.).
 
-[GET] /model-info: Extracción de metadatos e hiperparámetros del modelo base.
+🤖 Modelos Pre-entrenados (HuggingFace)
+POST /hf-sentiment: Un endpoint alternativo que utiliza el modelo de estado del arte distilbert-base-uncased para realizar un análisis de sentimiento avanzado.
 
-[POST] /hf-sentiment: Inferencia de sentimiento utilizando un pipeline pre-entrenado de HuggingFace (distilbert).
+POST /hf-generate: Generador de texto integrado con gpt2. Recibe un prompt (texto inicial) y devuelve una continuación lógica generada por la IA.
 
-[POST] /hf-generate: Generación de texto (continuación de prompts) utilizando HuggingFace (gpt2).
+☁️ Evidencia del Despliegue en la Nube
+Para cumplir con la parte opcional de la práctica, la API fue correctamente empaquetada en Docker y desplegada en Google Cloud Run.
 
-☁️ Despliegue en Vivo
-La API ha sido desplegada con éxito en Google Cloud Run 
+Nota importante sobre FinOps: Para evitar costes innecesarios de facturación en la tarjeta de crédito asociada a Google Cloud, la infraestructura en vivo ha sido eliminada tras comprobar su correcto funcionamiento.
 
-Las imagenes estan en la carpeta "Capturas_Cloud"
+📸 Todas las pruebas del despliegue exitoso (interfaz Swagger pública y peticiones HTTP completadas) se encuentran en la carpeta /capturas_cloud/ de este repositorio.
 
-🛠️ Tecnologías Utilizadas
+🛠️ Stack Tecnológico
 Machine Learning: Scikit-Learn, Pandas, Joblib.
 
-Deep Learning / NLP: HuggingFace Transformers, PyTorch.
+Deep Learning & NLP: HuggingFace Transformers, PyTorch.
 
-MLOps & Tracking: MLflow.
+MLOps: MLflow.
 
-Desarrollo Backend: FastAPI, Uvicorn, Pydantic.
+Backend: FastAPI, Uvicorn, Pydantic.
 
-DevOps & Cloud: Docker, Google Cloud Shell, GCP Artifact Registry, GCP Cloud Run.
-
+DevOps & Nube: Docker, Google Cloud Platform (Artifact Registry, Cloud Run).
