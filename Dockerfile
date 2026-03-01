@@ -14,7 +14,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Exponemos el puerto que usará FastAPI
-EXPOSE 8000
+EXPOSE 8080
 
 # Comando para ejecutar la API cuando arranque el contenedor
+
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
